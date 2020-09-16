@@ -18,7 +18,7 @@ function success(item) {
 function fail(item) {
   item.durability < 15 ? item.durability -= 5 : item.durability -= 10
   
-  item.enchancement < 15 ? item.enchancement -= 5 : item.enchancement -= 10
+  item.enchancement > 16 ? item.enchanecment -= 1 : null
 
 
   return { ...item };

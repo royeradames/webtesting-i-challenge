@@ -30,12 +30,10 @@ describe('enhancer', () => {
             magicPen = enhancer.fail(magicPen)
             expect(magicPen.durability).toBe(5)
         })
-        test('If the items enhancement is 15 or more, the durability of the item is decreased by 10.', function () {
+        test('If the items enhancement is 15 or more, the durability of the item is decreased by 10., and If the items enhancement level is greater than 16, the enhancement level decreases by 1 (17 goes down to 16, 18 goes down to 17', function () {
             spear = enhancer.fail(spear)
             expect(spear.durability).toBe(35)
-        })
-        test('If the items enhancement level is greater than 16, the enhancement level decreases by 1 (17 goes down to 16, 18 goes down to 17)', function () {
-           
+            expect(spear.enchancement).toBe(19)
         })
     })
     describe('.repair()', () => {
