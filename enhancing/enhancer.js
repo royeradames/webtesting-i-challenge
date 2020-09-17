@@ -29,5 +29,13 @@ function repair(item) {
 }
 
 function get(item) {
+
+  if (item.enchancement > 0) {
+    item = {
+      ...item,
+      name: `[+${item.enchancement}] ${item.name}`
+    }
+  } 
+  console.log(item)
   return { ...item };
 }

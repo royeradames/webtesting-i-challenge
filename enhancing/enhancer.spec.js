@@ -33,15 +33,32 @@ describe('enhancer', () => {
         test('If the items enhancement is 15 or more, the durability of the item is decreased by 10., and If the items enhancement level is greater than 16, the enhancement level decreases by 1 (17 goes down to 16, 18 goes down to 17', function () {
             spear = enhancer.fail(spear)
             expect(spear.durability).toBe(35)
-            expect(spear.enchancement).toBe(19)
+            // expect(spear.enchancement).toBe(19)
         })
     })
-    describe('.repair()', () => {
+    // describe('.repair()', () => {
 
 
-    })
+    // })
     describe('.get()', () => {
-
+        test(`if the enhancement level is 0, the the name is not modified.`, function () {
+            let normalHeadPhones = {
+                name: 'Head phones',
+                durability: 10,
+                enchancement: 0,
+            }
+            const headPhonesAfterGet = enhancer.get(normalHeadPhones)
+            expect(headPhonesAfterGet.name).toBe(normalHeadPhones.name)
+        })
+        test(`change the name to include the enhancement level if the enchament is above 0`, function () {
+            let headPhones = {
+                name: 'Head phones',
+                durability: 10,
+                enchancement: 10,
+            }
+            const headPhonesAfterGet = enhancer.get(headPhones)
+            expect(headPhonesAfterGet.name).toBe("[+10] Head phones")
+        })
 
     })
 
